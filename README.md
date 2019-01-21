@@ -6,8 +6,6 @@ In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-
-Create-react-app, Fromik
+App - Create-react-app
+Fromik = https://github.com/jaredpalmer/formik
+English Words = https://github.com/words/an-array-of-english-words
