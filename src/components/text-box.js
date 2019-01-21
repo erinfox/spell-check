@@ -1,56 +1,58 @@
-import React from "react";
+import React, { Component } from "react";
 import { Formik } from "formik";
 
-const Basic = () => (
-  <div>
-    <Formik
-      initialValues={{ inputWord: "" }}
-      // validate={values => {
-      //   let errors = {};
-      //   if (!values.inputWord) {
-      //     errors.inputWord = "Required";
-      //   }
-      //   {
-      //     errors.inputWord = "Invalid word";
-      //   }
-      //   return errors;
-      // }}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          //   alert(JSON.stringify(values, null, 2));
-          //   setSubmitting(false);
-          // }, 400);
-          alert("clicked");
-          setSubmitting(false);
-        }, 400);
-      }}
-    >
-      {({
-        values,
-        errors,
-        touched,
-        handleChange,
-        handleBlur,
-        handleSubmit,
-        isSubmitting
-      }) => (
-        <form onSubmit={handleSubmit}>
-          <input
-            type="inputWord"
-            name="inputWord"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.inputWord}
-          />
-          {/* {errors.inputWord && touched.inputWord && errors.inputWord} */}
-          <br />
-          <button type="submit" disabled={isSubmitting}>
-            Check my spelling
-          </button>
-        </form>
-      )}
-    </Formik>
-  </div>
-);
+class TextBox extends Component {
+  render() {
+    const words = require("an-array-of-english-words");
+    // returns all the words
+    console.log(words);
 
-export default Basic;
+    // needs to return the input value/word
+    // const findInputWord = words.filter(word => word.match(value));
+    // console.log(findInputWord);
+
+    return (
+      <div>
+        <Formik
+          initialValues={{ inputWord: "" }}
+          onSubmit={(values, { setSubmitting }) => {
+            setTimeout(() => {
+              // can't figure out how to pass the inputWord, for now it just says cats
+              words.find(word => word.match(values.inputWord))
+                ? alert("CORRECT!")
+                : alert("INCORRECT...");
+              // alert("clicked");
+              setSubmitting(false);
+            }, 400);
+          }}
+        >
+          {({
+            values,
+            errors,
+            touched,
+            handleChange,
+            handleBlur,
+            handleSubmit,
+            isSubmitting
+          }) => (
+            <form onSubmit={handleSubmit}>
+              <input
+                id="inputWord"
+                placeholder="Enter a word..."
+                type="text"
+                value={values.inputWord}
+                onChange={handleChange}
+              />
+              <br />
+              <button type="submit" disabled={isSubmitting}>
+                Check my spelling
+              </button>
+            </form>
+          )}
+        </Formik>
+      </div>
+    );
+  }
+}
+
+export default TextBox;
