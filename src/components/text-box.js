@@ -4,12 +4,7 @@ import { Formik } from "formik";
 class TextBox extends Component {
   render() {
     const words = require("an-array-of-english-words");
-    // returns all the words
-    console.log(words);
-
-    // needs to return the input value/word
-    // const findInputWord = words.filter(word => word.match(value));
-    // console.log(findInputWord);
+    // console.log(words);
 
     return (
       <div>
@@ -17,11 +12,9 @@ class TextBox extends Component {
           initialValues={{ inputWord: "" }}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
-              // can't figure out how to pass the inputWord, for now it just says cats
               words.find(word => word.match(values.inputWord))
                 ? alert("CORRECT!")
                 : alert("INCORRECT...");
-              // alert("clicked");
               setSubmitting(false);
             }, 400);
           }}

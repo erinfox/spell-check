@@ -12,6 +12,7 @@ class App extends Component {
             className="Code-link"
             href="https://github.com/erinfox/spell-check"
           >
+            <br />
             Code is here.
           </a>
         </header>
