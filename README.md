@@ -3,7 +3,9 @@
 ## Spell Checker
 
 Here is a basic spell checker! Check the spelling of one word at a time. Simply enter a word and hit submit, your browser will let you know how great (or not great) of a speller you are. 
-https://media.giphy.com/media/4PZD5Q0C5r3zA42jRP/giphy.gif
+
+![Alt Text](https://media.giphy.com/media/4PZD5Q0C5r3zA42jRP/giphy.gif)
+
 
 
 In the project directory, you can run:
